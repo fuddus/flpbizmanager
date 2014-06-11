@@ -13,11 +13,13 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'pg'
 gem 'simple_form'
+gem 'high_voltage'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'hub', :require=>nil
   gem 'rails_layout'
+  gem 'quiet_assets'
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -25,7 +27,7 @@ group :development, :test do
   gem 'thin'
 end
 group :production do
-  gem 'unicorn'
+  gem 'thin'
 end
 group :test do
   gem 'capybara'
