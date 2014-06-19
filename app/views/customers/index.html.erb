@@ -1,0 +1,29 @@
+<div class="container">
+  <h3>Customers</h3>
+  <%= form_tag customers_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], :autofocus => true %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="bg-primary">
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Country</th>            
+        <th class="text-right">Actions</th>
+      </thead>
+      <tbody class="text-left">
+        <% @customers.each do |customer| %>
+        <tr>
+          <%= render customer %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @customers %>
+  </div>
+  <%= link_to 'Add New Customer', new_customer_path, :class => 'btn btn-primary' %>
+</div>

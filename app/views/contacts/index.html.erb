@@ -1,0 +1,28 @@
+<div class="container">
+  <h3>Contact entries for <%= @customer.name %></h3>
+  <%= form_tag customer_contacts_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], :autofocus => true %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="bg-primary">
+        <th>Date</th>
+        <th>Discussed</th>
+        <th>Next Contact Date</th>        
+        <th class="text-right">Actions</th>
+      </thead>
+      <tbody class="text-left">
+        <% @contacts.each do |contact| %>
+        <tr>
+          <%= render contact %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @contacts %>
+  </div>
+  <%= link_to 'Add New Entry', new_customer_contact_path, :class => 'btn btn-primary' %>
+</div>

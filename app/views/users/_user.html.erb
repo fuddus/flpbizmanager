@@ -1,0 +1,5 @@
+<td><%= user.name %></td>
+<td><%= user.email %></td>
+<td class="text-right"><%= link_to 'Password', {:controller => :users, :action => 'change_password', :id => user.id}, {:class => 'btn btn-default btn-xs'} %> 
+	<%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-default btn-xs' %> 
+	<%= link_to 'Delete', [user], :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>

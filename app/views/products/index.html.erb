@@ -1,0 +1,31 @@
+<div class="container">
+  <h3>Products</h3>
+  <%= form_tag products_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], :autofocus => true %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="bg-primary">
+        <th>SKU</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>CC</th>       
+        <th>Retail</th>      
+        <th>NDP</th>    
+        <th>Dist</th>           
+        <th class="text-right">Actions</th>
+      </thead>
+      <tbody class="text-left">
+        <% @products.each do |product| %>
+        <tr>
+          <%= render product %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Add New Product', new_product_path, :class => 'btn btn-primary' %>
+</div>

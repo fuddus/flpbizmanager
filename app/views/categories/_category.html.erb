@@ -1,0 +1,3 @@
+<td><%= category.name %></td>
+<td class="text-right"><%= link_to 'Edit', edit_category_path(category), :class => 'btn btn-default btn-xs' %> 
+	<%= link_to 'Delete', [category], :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>

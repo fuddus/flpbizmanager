@@ -1,0 +1,23 @@
+<%= simple_form_for [@customer, @contact] do |f| %>
+  <% if @contact.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@contact.errors.count, "error") %> prohibited
+      this contact entry from being saved:</h2>
+    <ul>
+    <% @contact.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+    <div class="form-group">
+      <%= f.label :contactedOn %>
+      <%= f.text_field :contactedOn, :autofocus => true, class: 'form-control' %>
+      <%= f.label :discussed %>
+      <%= f.text_area :discussed, class: 'form-control' %>
+      <%= f.label :nextContact %>
+      <%= f.text_field :nextContact, class: 'form-control' %>
+    </div>
+     <%= link_to 'Cancel', customer_contacts_path, :class => 'btn btn-default' %>
+     <%= f.submit 'Save', :class => 'btn btn-primary right' %>
+<% end %>

@@ -1,0 +1,5 @@
+<td><%= contact.contactedOn %></td>
+<td><%= contact.discussed %></a></td>
+<td><%= contact.nextContact %></td>
+<td class="text-right"><%= link_to 'Edit', edit_customer_contact_path(@customer, contact), :class => 'btn btn-default btn-xs' %> 
+	<%= link_to 'Delete', [@customer, contact], :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>

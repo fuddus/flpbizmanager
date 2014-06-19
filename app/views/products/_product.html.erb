@@ -1,0 +1,9 @@
+<td><%= product.sku %></td>
+<td><%= product.product_name %></td>
+<td><%= product.category.name %></td>
+<td><%= number_with_precision(product.credits , :precision => 3) %></td>
+<td><%= number_with_precision(product.retailPrice, :precision => 2) %></td>
+<td><%= number_with_precision(product.ndpPrice, :precision => 2) %></td>
+<td><%= number_with_precision(product.distPrice, :precision => 2) %></td>
+<td class="text-right"><%= link_to 'Edit', edit_product_path(product), :class => 'btn btn-default btn-xs' %> 
+	<%= link_to 'Delete', [product], :class => 'btn btn-default btn-xs', method: :delete, data: { confirm: 'Are you sure?' } %></td>

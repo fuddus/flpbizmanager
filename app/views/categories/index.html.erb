@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>Categories</h3>
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="bg-primary">
+        <th>Name</th>
+        <th class="text-right">Actions</th>
+      </thead>
+      <tbody class="text-left">
+        <% @categories.each do |category| %>
+        <tr>
+          <%= render category %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Add New Category', new_category_path, :class => 'btn btn-primary' %>
+</div>
