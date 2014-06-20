@@ -1,1 +1,29 @@
-<h3>Dashboard</h3>
+  <h3>Dashboard</h3>
+  <div class="panel panel-default">
+    <div class="panel-body">
+    <h4>Contact Listing for <%= Date.today.strftime("%A, %B %d, %Y") %></h3>
+      <table class="table">
+        <thead class="bg-primary">
+          <th>Customer</th>
+          <th>Phone</th>
+          <th>Please Contact On</th>
+          <th>Last Contacted</th>    
+          <th class="text-right">Actions</th>
+        </thead>
+        <tbody class="text-left">
+          <% if @contacts.empty? %>
+          <tr>
+            <td>No contact entries to show at present.  Well done!  You're up to date!</td>
+          </tr>
+          <% else %>
+            <% @contacts.each do |contact| %>
+            <tr>
+              <%= render partial: "home/dash_contact", locals: {contact: contact} %>
+             </tr>
+             <% end %>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @contacts %>
+    </div>
+  </div>

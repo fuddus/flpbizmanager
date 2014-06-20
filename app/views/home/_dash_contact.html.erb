@@ -1,0 +1,9 @@
+<td><%= link_to contact.customer.name, customer_contacts_path(contact.customer) %></td>
+<td><%= contact.customer.phone %></td>
+<td><%= contact.next_contact.strftime("%A, %B %d, %Y") %></td>
+<td><%= contact.contacted_on %> <small>( <%= time_ago_in_words(contact.contacted_on) %> ago )</small></td>
+<td class="text-right"><%= link_to 'Edit', edit_customer_contact_path(contact.customer, contact), :class => 'btn btn-default btn-xs' %> <%= link_to 'Done!', customer_contact_mark_as_completed_path(contact.customer, contact, :contact => { :completed => true }), :method => :put, :class => 'btn btn-success btn-xs' %></td>
+</tr>
+<tr>
+<td colspan="5" class="text-muted table-row-bottom-border"><%= contact.discussed %></td>
+</tr>

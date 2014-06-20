@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/users/:id/change_password', to: 'users#change_password'
 
   resources :customers do
-  	resources :contacts
+  	resources :contacts do
+  		put 'mark_as_completed'	
+  	end
   end
 
   resources :users, :categories, :countries, :orders, :products

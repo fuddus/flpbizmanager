@@ -4,9 +4,9 @@ FactoryGirl.define do
   factory :product do
     sku "MyString"
     credits "9.99"
-    retailPrice "9.99"
-    ndpPrice "9.99"
-    distPrice "9.99"
+    retail_price "9.99"
+    ndp_price "9.99"
+    dist_price "9.99"
     mtdSalesQty 1
     ytdSalesQty 1
     mtdSalesQty "9.99"

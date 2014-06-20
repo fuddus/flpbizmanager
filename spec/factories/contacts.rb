@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :contact do
-    contactedOn "2014-06-11"
+    contacted_on "2014-06-11"
     discussed "MyText"
     nextContact "2014-06-11"
     customer nil

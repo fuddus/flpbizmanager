@@ -11,28 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615001849) do
+ActiveRecord::Schema.define(version: 20140619214300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.integer  "mtdSalesQty"
-    t.integer  "ytdSalesQty"
-    t.decimal  "mtdSalesValue"
-    t.decimal  "ytdSalesValue"
+    t.integer  "mtd_sales_qty"
+    t.integer  "ytd_sales_qty"
+    t.decimal  "mtd_sales_value"
+    t.decimal  "ytd_sales_value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "contacts", force: true do |t|
-    t.date     "contactedOn"
+    t.date     "contacted_on"
     t.text     "discussed"
-    t.date     "nextContact"
+    t.date     "next_contact"
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "completed"
   end
 
   add_index "contacts", ["customer_id"], name: "index_contacts_on_customer_id", using: :btree
@@ -51,8 +52,8 @@ ActiveRecord::Schema.define(version: 20140615001849) do
     t.string   "postcode"
     t.string   "phone"
     t.string   "email"
-    t.decimal  "mtdPurchases"
-    t.decimal  "ytdPurchases"
+    t.decimal  "mtd_purchases"
+    t.decimal  "ytd_purchases"
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -76,14 +77,14 @@ ActiveRecord::Schema.define(version: 20140615001849) do
   add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
 
   create_table "orders", force: true do |t|
-    t.date     "orderDate"
-    t.string   "ourRef"
+    t.date     "order_date"
+    t.string   "our_ref"
     t.decimal  "subtotal"
     t.decimal  "delivery"
     t.decimal  "discount"
     t.decimal  "total"
     t.boolean  "paid"
-    t.boolean  "deliveredInFull"
+    t.boolean  "delivered_in_full"
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -95,12 +96,12 @@ ActiveRecord::Schema.define(version: 20140615001849) do
     t.string   "sku"
     t.string   "description"
     t.decimal  "credits"
-    t.decimal  "retailPrice"
-    t.decimal  "ndpPrice"
-    t.decimal  "distPrice"
-    t.decimal  "mtdSalesQty"
-    t.integer  "ytdSalesQty"
-    t.decimal  "ytdSalesValue"
+    t.decimal  "retail_price"
+    t.decimal  "ndp_price"
+    t.decimal  "dist_price"
+    t.decimal  "mtd_sales_qty"
+    t.integer  "ytd_sales_qty"
+    t.decimal  "ytd_sales_value"
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
